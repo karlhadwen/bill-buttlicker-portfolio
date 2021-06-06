@@ -1,7 +1,21 @@
+/* ==========================================================================
+   PORTFOLIO TEMPLATE BUILT BY KARL HADWEN (@karlhadwen)
+   SUBSCRIBE FOR CODING TUTORIALS: https://youtube.com/c/cognitivesurge
+   ========================================================================== */
+
 /** FONTS **/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;0,900;1,400;1,900&display=swap');
 
 /** RESET **/
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -46,7 +60,7 @@ table {
 	border-spacing: 0;
 }
 
-/** APP **/
+/** APP GLOBALS **/
 body {
   font-family: 'Poppins', sans-serif;
   color: #ffffff;
@@ -65,7 +79,7 @@ a {
 }
 
 a.active {
-  font-weight: 900;
+  font-weight: 700;
   color: #f9da85;
 }
 
@@ -74,25 +88,19 @@ a.active {
   height: 100%;
 }
 
-main {
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  width: 100%;
-}
-
+/** NAV **/
 nav {
   display: flex;
   height: 100%;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   width: 100%;
-  max-width: 335px;
-  background-color: black;
+  max-width: 305px;
+  background-color: #000000;
+  padding: 16px 32px;
 }
 
-nav .inner h1 {
+nav h1 {
   color: #ffffff;
   font-family: 'Poppins', sans-serif;
   font-size: 28px;
@@ -103,21 +111,79 @@ nav .inner h1 {
   transition: color .4s ease;
 }
 
-nav .inner h1:hover {
+nav h1:hover {
   color: #f9da85;
 }
 
-nav .inner p {
+nav p {
   color: #999999;
   font-style: italic;
+  font-size: 14px;
 }
 
-main section .inner {
+nav a.author {
+  font-style: italic;
+  color: #999999c4;
+  font-size: 12px;
+}
+
+nav ul {
+  margin-bottom: 48px;
+}
+
+nav ul li {
+  margin-bottom: 16px;
+}
+
+nav ul li a {
+  font-size: 14px;
+  position: relative;
+}
+
+nav ul li a.active:before {
+  background-color: #f9da85;
+}
+
+nav ul li a:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -3px;
+  left: 0;
+  background-color: #ffffff;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+nav ul li a:hover:before {
+  visibility: visible;
+  width: 100%;
+}
+
+nav ul li:last-of-type {
+  margin-bottom: 0;
+}
+
+/** MAIN **/
+main {
   display: flex;
-  max-width: 900px;
+  height: 100%;
+  flex-direction: column;
+  width: 100%;
 }
 
-main section .inner h2 {
+main section {
+  display: flex;
+  height: 100%;
+  max-width: 900px;
+  margin: auto;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+main section h2 {
   color: #000000;
   font-family: 'Poppins', sans-serif;
   font-size: 48px;
@@ -126,32 +192,16 @@ main section .inner h2 {
   margin-bottom: 32px;
 }
 
-main section .inner p {
+main section p {
   color: #383838;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 }
 
 main section:not(.home) {
   display: none;
 }
 
-main section {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  justify-content: center;
-}
-
-main section.home .inner {
-  align-items: center;
-}
-
-main section.home .avatar {
-  width: 100%;
-  margin-right: 64px;
-}
-
-main section.home .avatar img {
+main section img {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -163,8 +213,40 @@ main section.home .avatar img {
   border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
 }
 
-main section.home .avatar img:hover {
+main section img:hover {
   border: 10px solid #dadadabf;
+}
+
+main section button {
+  height: 64px;
+  width: 100%;
+  background-color: #f9da85;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 16px;
+  cursor: pointer;
+  border: 4px solid #ecca6b;
+  -webkit-transition: background-color 500ms linear;
+  -moz-transition: background-color 500ms linear;
+  -o-transition: background-color 500ms linear;
+  -ms-transition: background-color 500ms linear;
+  transition: background-color 500ms linear;
+}
+
+main section button:hover {
+  background-color: #ffca3a;
+}
+
+/** MAIN: HOME **/
+main section.home {
+  flex-direction: row;
+  align-items: center;
+}
+
+main section.home .avatar {
+  width: 100%;
+  margin-right: 64px;
 }
 
 main section.home .content ul {
@@ -189,12 +271,15 @@ main section.home .content ul li svg:hover {
   fill: #f9da85;
 }
 
-main section.about .inner {
-  flex-direction: column;
+main section.home .content p {
+  margin-bottom: 32px;
 }
 
+/** MAIN: ABOUT **/
 main section.about .large-image {
-  margin-bottom: 32px;
+  margin-bottom: 64px;
+  display: flex;
+  justify-content: center;
 }
 
 main section.about h2 {
@@ -205,38 +290,51 @@ main section.about h2 span {
   font-style: italic;
 }
 
-nav ul {
-  margin-bottom: 48px;
+main section.about p:last-of-type {
+  margin-bottom: 32px;
 }
 
-nav ul li {
+/** MAIN: PORTFOLIO **/
+main section.portfolio {
+  flex-direction: column;
+  justify-content: center;
+}
+
+/** MAIN: CONTACT **/
+main section.contact .map {
   margin-bottom: 16px;
 }
 
-nav ul li a {
-  font-size: 14px;
-  position: relative;
+main section.contact form {
+  display: flex;
+  flex-direction: column;
 }
 
-nav ul li a:before {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 1px;
-  bottom: -3px;
-  left: 0;
-  background-color: #FFF;
-  visibility: hidden;
-  transition: all 0.3s ease-in-out;
-}
-
-nav ul li a:hover:before {
-  visibility: visible;
+main section.contact input {
   width: 100%;
+  border: 1px solid rgba(0,0,0,.2);
+  background-color: transparent;
+  font-style: italic;
 }
 
-nav ul li:last-of-type {
-  margin-bottom: 0;
+main section.contact p:first-of-type {
+  margin-bottom: 32px;
+}
+
+main section.contact input,
+main section.contact textarea {
+  color: #383838;
+  width: 100%;
+  border: 1px solid rgba(0,0,0,.2);
+  background-color: transparent;
+  font-style: italic;
+  padding: 16px;
+  margin-bottom: 16px;
+  font-family: 'Poppins', sans-serif;
+}
+
+main section.contact textarea {
+  resize: none;
 }
 
 /** ANIMATIONS **/
@@ -251,3 +349,5 @@ nav ul li:last-of-type {
     border-radius: 60% 40% 30% 70%/60% 30% 70% 40%
   }
 }
+
+/** RESPONSIVE **/
