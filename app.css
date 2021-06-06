@@ -1,5 +1,5 @@
 /** FONTS **/
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;0,900;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;0,900;1,400;1,900&display=swap');
 
 /** RESET **/
 html, body, div, span, applet, object, iframe,
@@ -11,7 +11,7 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
+article, nav, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
@@ -23,7 +23,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
+article, nav, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -66,14 +66,22 @@ a {
 
 a.active {
   font-weight: 900;
+  color: #f9da85;
+}
+
+.wrapper {
+  display: flex;
+  height: 100%;
 }
 
 main {
   display: flex;
   height: 100%;
+  flex-direction: column;
+  width: 100%;
 }
 
-aside {
+nav {
   display: flex;
   height: 100%;
   flex-direction: column;
@@ -84,7 +92,7 @@ aside {
   background-color: black;
 }
 
-main aside .inner h1 {
+nav .inner h1 {
   color: #ffffff;
   font-family: 'Poppins', sans-serif;
   font-size: 28px;
@@ -92,22 +100,20 @@ main aside .inner h1 {
   text-transform: uppercase;
   margin-bottom: 32px;
   line-height: 1.2;
+  transition: color .4s ease;
 }
 
-main aside .inner p {
+nav .inner h1:hover {
+  color: #f9da85;
+}
+
+nav .inner p {
   color: #999999;
   font-style: italic;
 }
 
-main section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-grow: 1;
-  background-color: #ffffff;
-}
-
 main section .inner {
+  display: flex;
   max-width: 900px;
 }
 
@@ -125,62 +131,94 @@ main section .inner p {
   margin-bottom: 32px;
 }
 
-main section .inner > div:not(.home) {
+main section:not(.home) {
   display: none;
 }
 
-main section .inner .home {
+main section {
   display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+}
+
+main section.home .inner {
   align-items: center;
 }
 
-main section .inner .home .avatar {
+main section.home .avatar {
   width: 100%;
   margin-right: 64px;
 }
 
-main section .inner .home .avatar img {
+main section.home .avatar img {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   animation: morph 8s ease-in-out infinite 1s;
   background-blend-mode: multiply;
-  border: 10px solid #dadadabf;
+  border: 10px solid #f9da85;
   max-width: 90%;
   height: auto;
+  border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
 }
 
-main section .inner .home .content ul {
+main section.home .avatar img:hover {
+  border: 10px solid #dadadabf;
+}
+
+main section.home .content ul {
   display: flex;
 }
 
-main section .inner .home .content ul li {
+main section.home .content ul li {
   margin-right: 24px;
 }
 
-main section .inner .home .content ul li:last-of-type {
+main section.home .content ul li:last-of-type {
   margin-right: 0;
 }
 
-main section .inner .home .content ul li svg {
+main section.home .content ul li svg {
   width: 17px;
   height: 17px;
+  transition: fill .4s ease;
 }
 
-aside ul {
+main section.home .content ul li svg:hover {
+  fill: #f9da85;
+}
+
+main section.about .inner {
+  flex-direction: column;
+}
+
+main section.about .large-image {
+  margin-bottom: 32px;
+}
+
+main section.about h2 {
+  font-size: 40px;
+}
+
+main section.about h2 span {
+  font-style: italic;
+}
+
+nav ul {
   margin-bottom: 48px;
 }
 
-aside ul li {
+nav ul li {
   margin-bottom: 16px;
 }
 
-aside ul li a {
+nav ul li a {
   font-size: 14px;
   position: relative;
 }
 
-aside ul li a:before {
+nav ul li a:before {
   content: "";
   position: absolute;
   width: 0;
@@ -192,12 +230,12 @@ aside ul li a:before {
   transition: all 0.3s ease-in-out;
 }
 
-aside ul li a:hover:before {
+nav ul li a:hover:before {
   visibility: visible;
   width: 100%;
 }
 
-aside ul li:last-of-type {
+nav ul li:last-of-type {
   margin-bottom: 0;
 }
 
