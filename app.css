@@ -300,6 +300,13 @@ main section.portfolio {
   justify-content: center;
 }
 
+main section.portfolio .photos {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+
 /** MAIN: CONTACT **/
 main section.contact .map {
   margin-bottom: 16px;
