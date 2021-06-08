@@ -1,6 +1,8 @@
 /* ==========================================================================
    PORTFOLIO TEMPLATE BUILT BY KARL HADWEN (@karlhadwen)
    SUBSCRIBE FOR CODING TUTORIALS: https://youtube.com/c/cognitivesurge
+
+   "Whenever I'm about to do something, I think 'Would an idiot do that?' And if they would, I do not do that thing."
    ========================================================================== */
 
 /** FONTS **/
@@ -86,6 +88,7 @@ a.active {
 .wrapper {
   display: flex;
   height: 100%;
+  min-height: 100%;
 }
 
 /** NAV **/
@@ -168,9 +171,9 @@ nav ul li:last-of-type {
 /** MAIN **/
 main {
   display: flex;
-  height: 100%;
   flex-direction: column;
   width: 100%;
+  flex: 1;
 }
 
 main section {
@@ -181,6 +184,7 @@ main section {
   flex-direction: column;
   justify-content: center;
   width: 100%;
+  padding: 32px 0;
 }
 
 main section h2 {
@@ -358,3 +362,54 @@ main section.contact textarea {
 }
 
 /** RESPONSIVE **/
+@media (max-width: 1400px) {
+  .wrapper {
+    flex-direction: column;
+  }
+  nav {
+    max-width: none;
+    height: auto;
+    padding: 32px;
+  }
+  nav h1 {
+    margin-bottom: 16px;
+  }
+  nav ul {
+    display: flex;
+    margin-bottom: 0;
+  }
+  nav ul li {
+    margin-right: 16px;
+    margin-bottom: 0;
+  }
+  nav ul li:last-of-type {
+    margin-right: 0;
+  }
+  nav p, nav > a {
+    display: none;
+  }
+  main section {
+    padding: 32px;
+  }
+  main section.home {
+    flex-direction: column;
+  }
+  main section.home .avatar {
+    margin-right: 0;
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: center;
+  }
+  main section.home .content ul {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 700px) {
+  main section.portfolio .photos {
+    display: inline-grid;
+    grid-template-columns: auto;
+    justify-items: center;
+    align-items: center;
+  }
+}
