@@ -273,6 +273,10 @@ main section.about h2 span {
   font-style: italic;
 }
 
+main section.about img {
+  max-width: 70%;
+}
+
 main section.about p:last-of-type {
   margin-bottom: 32px;
 }
@@ -281,6 +285,10 @@ main section.about p:last-of-type {
 main section.portfolio {
   flex-direction: column;
   justify-content: center;
+}
+
+main section.portfolio img {
+  max-width: 70%;
 }
 
 main section.portfolio .photos {
